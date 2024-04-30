@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Number Checker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div>
+    <h2>Scientific Number Checker</h2>
+    <p>Enter a number:</p>
+    <input type="text" id="userInput">
+    <button onclick="validateInput()">Check</button>
+    <p id="validationMessage"></p>
+</div>
+
+<script>
+function isScientificNumber(inputStr) {
+    // Regular expression pattern to match scientific numbers
+    var scientificPattern = /^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/;
+    return scientificPattern.test(inputStr);
+}
+
+function validateInput() {
+    var userInput = document.getElementById("userInput").value;
+    var validationMessage = document.getElementById("validationMessage");
+
+    if (isScientificNumber(userInput)) {
+        validationMessage.textContent = "Input is a scientific number.";
+    } else {
+        validationMessage.textContent = "Input is not a scientific number.";
+    }
+}
+</script>
+
+</body>
+</html>
